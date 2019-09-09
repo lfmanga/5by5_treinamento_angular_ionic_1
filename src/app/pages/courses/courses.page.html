@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>courses</ion-title>
+
+    <ion-buttons slot="end" (click)="toogleListMode()">
+      <ion-icon slot="icon-only" name="apps" *ngIf="listmode"></ion-icon>
+      <ion-icon slot="icon-only" name="list" *ngIf="!listmode"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="ion-padding custom-skeleton" *ngIf="!courses">
+    <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+    <ion-skeleton-text animated></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+  </div>
+
+  <app-course-card [courses]="courses" *ngIf="!listmode"></app-course-card>
+  <app-course-list [courses]="courses" *ngIf="listmode"></app-course-list>
+
+</ion-content>

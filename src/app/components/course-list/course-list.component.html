@@ -1,0 +1,15 @@
+<ion-list lines="none">
+  <ion-item *ngFor="let course of courses">
+    <ion-avatar slot="start">
+      <img src="{{ course.author.image }}" />
+    </ion-avatar>
+    <ion-label text-wrap>
+      {{ course.title}} <br />
+      <small>
+        {{ course.category}} |
+        {{ course.duration/60 | number : '1.0-1'}} horas |
+        {{ course.price | currency: 'BRL'}}
+      </small>
+    </ion-label>
+  </ion-item>
+</ion-list>

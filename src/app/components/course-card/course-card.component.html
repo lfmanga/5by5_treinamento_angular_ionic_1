@@ -1,0 +1,27 @@
+<ion-grid>
+  <ion-row>
+    <ion-col size="4" sizeXs="12" *ngFor="let course of courses">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle> {{ course.title }}</ion-card-subtitle>
+          <ion-card-title> {{ course.tag }}</ion-card-title>
+        </ion-card-header>
+
+        <ion-item>
+          <ion-avatar slot="start">
+            <img src="{{ course.author.image }}" />
+          </ion-avatar>
+          <ion-label>{{ course.author.name }}</ion-label>
+        </ion-item>
+
+        <ion-card-content>
+          <small>
+            {{ course.category}} |
+            {{ course.duration/60 | number : '1.0-1'}} horas |
+            {{ course.price | currency: 'BRL'}}
+          </small>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
